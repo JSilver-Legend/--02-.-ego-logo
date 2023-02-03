@@ -4,7 +4,7 @@ import { useGLTF, useAnimations } from '@react-three/drei'
 
 const colorList = ['#53DBAA', '#DB4B7C', '#7D2EEA', '#DB8830'];
 
-const EgoModel = () => {
+const EgoModel = ({ isPlay, setIsPlay, setTextNum }) => {
     let index = 0;
     const [bgColor, setBgColor] = useState('#5FCFA4');
     const group = useRef()
@@ -29,11 +29,15 @@ const EgoModel = () => {
     //----------------------------------------------
 
     const changeColor = () => {
-        setTimeout(() => {setBgColor(colorList[index])}, 1600)
-        if (index < 3) {
-            index = index + 1;
-        } else {
-            index = 0;
+        // setTimeout(() => {setBgColor(colorList[index])}, 1600)
+        if (isPlay) {
+            setBgColor(colorList[index]);
+            setTextNum(index);
+            if (index < 3) {
+                index = index + 1;
+            } else {
+                index = 0;
+            }
         }
     }
 
@@ -49,13 +53,26 @@ const EgoModel = () => {
     }, [smooshie, mouth, eyes, mat])
 
     useEffect(() => {
-        actions.EyesAction.play()
-        actions.Eyes_Key_Action.play()
-        actions.MouthAction.play()
-        actions.Mouth_Key_Action.play()
-        actions.SmooshieAction.play()
-        actions.Smooshie_Key_Action.play()
-    }, [actions])
+        const interval = setInterval(() => {changeColor()}, 1800);
+        if (isPlay) {
+            setTimeout(() => setIsPlay(false), 7500);
+            actions.EyesAction.play()
+            actions.Eyes_Key_Action.play()
+            actions.MouthAction.play()
+            actions.Mouth_Key_Action.play()
+            actions.SmooshieAction.play()
+            actions.Smooshie_Key_Action.play()
+        } else {
+            clearInterval(interval);
+            actions.EyesAction.stop();
+            actions.Eyes_Key_Action.stop();
+            actions.MouthAction.stop();
+            actions.Mouth_Key_Action.stop();
+            actions.SmooshieAction.stop();
+            actions.Smooshie_Key_Action.stop();
+        }
+        return () => clearInterval(interval);
+    }, [isPlay])
 
     return (
         <group ref={group}>

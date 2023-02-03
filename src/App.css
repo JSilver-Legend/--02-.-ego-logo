@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+@keyframes textAnimation {
+  from {left: 0px}
+  to {left: 100px}
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +39,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@font-face {
+  font-family: "custom";   /*Can be any text*/
+  src: local("Domine-VariableFont_wght"),
+    url("/src/assets/fonts/Domine-VariableFont_wght.ttf") format("truetype");
 }
