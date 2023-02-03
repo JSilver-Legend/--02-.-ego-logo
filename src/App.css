@@ -32,6 +32,7 @@
   color: #61dafb;
 }
 
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -42,7 +43,61 @@
 }
 
 @font-face {
-  font-family: "custom";   /*Can be any text*/
-  src: local("Domine-VariableFont_wght"),
-    url("/src/assets/fonts/Domine-VariableFont_wght.ttf") format("truetype");
+  font-family: "HeptaSlab";   /*Can be any text*/
+  src: local("HeptaSlab"),
+    url("/src/assets/fonts/HeptaSlab-Medium.ttf") format("truetype");
+}
+
+.logo {
+  position: absolute;
+  top: 26px;
+  left: 18px;
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  position: absolute;
+  font-family: "HeptaSlab";
+  font-weight: 400;
+  bottom: 150px;
+  right: 150px;
+  color: black;
+  font-size: 18px;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 44px;
+  border: none;
+  border-radius: 6px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.text-field {
+  position: absolute;
+  left: 150px;
+  top: 200px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.text-line {
+  font-family: "HeptaSlab";
+  color: white;
+  font-weight: 400;
+  font-size: 70px;
+  margin: 15px;
+}
+
+.text-animate-line {
+  font-family: "HeptaSlab";
+  font-weight: 400;
+  font-size: 70px;
+  color: #53DBAA;
+  margin: 15px;
 }

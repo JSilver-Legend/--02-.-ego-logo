@@ -1,7 +1,9 @@
 import { Canvas } from '@react-three/fiber';
-import { Stage } from '@react-three/drei';
+import { Stage, Svg } from '@react-three/drei';
 import EgoModel from './component';
 import { useState } from 'react';
+import LogoIcon from './assets/svg/logo-icon.svg';
+import LogoText from './assets/svg/logo-text.svg';
 
 import './App.css';
 import 'animate.css';
@@ -17,20 +19,24 @@ function App() {
 
   return (
     <div style={{position: 'relative'}}>
-      <button style={{position: 'absolute', bottom: '150px', right: '150px', backgroundColor: '#ffffff', color: '#000000', width: '150px', height: '40px', border: 'none', borderRadius: '4px', fontSize: '25px', fontFamily: 'initial',  cursor: 'pointer', zIndex: 10}} onClick={() => {onPlay()}} >
+      <div className='logo'>
+          <img src={LogoIcon} alt='logo-icon'/>
+          <img src={LogoText} alt='logo-text' />
+      </div>
+      <button className='button' onClick={() => {onPlay()}} >
         Join Us
       </button>
-      <div style={{position: 'absolute', top: '150px', left: '120px', display: 'flex', flexDirection: 'column', zIndex: 10}}>
-        <p style={{color: '#ffffff', fontSize: '70px',fontFamily: 'initial',  margin: '10px'}}>STREAM</p>
-        <p style={{color: '#ffffff', fontSize: '70px',fontFamily: 'initial',  margin: '10px'}}>AS A</p>
+      <div className='text-field'>
+        <p className='text-line'>STREAM</p>
+        <p className='text-line' >AS A</p>
         <div>
-          {textNum === 0 && <p className='animate__animated animate__fadeInRight' style={{color: '#0DBE89', fontSize: '70px', fontFamily: 'initial', margin: '10px'}}>{texts[0]}</p>}
-          {textNum === 1 && <p className='animate__animated animate__fadeInRight' style={{color: '#0DBE89', fontSize: '70px', fontFamily: 'initial', margin: '10px'}}>{texts[1]}</p>}
-          {textNum === 2 && <p className='animate__animated animate__fadeInRight' style={{color: '#0DBE89', fontSize: '70px', fontFamily: 'initial', margin: '10px'}}>{texts[2]}</p>}
-          {textNum === 3 && <p className='animate__animated animate__fadeInRight' style={{color: '#0DBE89', fontSize: '70px', fontFamily: 'initial', margin: '10px'}}>{texts[3]}</p>}
+          {textNum === 0 && <p className='animate__animated animate__fadeInRight text-animate-line' >{texts[0]}</p>}
+          {textNum === 1 && <p className='animate__animated animate__fadeInRight text-animate-line' >{texts[1]}</p>}
+          {textNum === 2 && <p className='animate__animated animate__fadeInRight text-animate-line' >{texts[2]}</p>}
+          {textNum === 3 && <p className='animate__animated animate__fadeInRight text-animate-line' >{texts[3]}</p>}
         </div>
-        <p style={{color: '#ffffff', fontSize: '70px',fontFamily: 'initial',  margin: '10px'}}>IN UNDER</p>
-        <p style={{color: '#ffffff', fontSize: '70px',fontFamily: 'initial',  margin: '10px'}}>5 MINUTES</p>
+        <p className='text-line' >IN UNDER</p>
+        <p className='text-line' >5 MINUTES</p>
       </div>
       <Canvas
         camera={{
