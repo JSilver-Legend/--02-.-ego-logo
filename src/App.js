@@ -11,11 +11,8 @@ import 'animate.css';
 const texts = ['AVATAR', 'FURRY', 'VTUBER', 'WAIFU'];
 
 function App() {
-  const [isPlay, setIsPlay] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [textNum, setTextNum] = useState(0);
-  const onPlay = () => {
-    setIsPlay(true);
-  };
 
   return (
     <div style={{position: 'relative'}}>
@@ -23,7 +20,7 @@ function App() {
           <img src={LogoIcon} alt='logo-icon'/>
           <img src={LogoText} alt='logo-text' />
       </div>
-      <button className='button' onClick={() => {onPlay()}} >
+      <button className='button' onClick={() => {setIsOpen(true)}} >
         Join Us
       </button>
       <div className='text-field'>
@@ -58,7 +55,7 @@ function App() {
         <pointLight position={[-3.0, 0, 3.0]} intensity={0.5} />
         <pointLight position={[-3.0, 0, -3.0]} intensity={0.5} />
         <Stage preset='rembrandt' intensity={0.1} environment='sunset'>
-          <EgoModel isPlay={isPlay} setIsPlay={setIsPlay} setTextNum={setTextNum} />
+          <EgoModel setTextNum={setTextNum} />
         </Stage>
       </Canvas>
     </div>

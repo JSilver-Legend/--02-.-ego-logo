@@ -4,7 +4,7 @@ import { useGLTF, useAnimations } from '@react-three/drei'
 
 const colorList = ['#53DBAA', '#DB4B7C', '#7D2EEA', '#DB8830'];
 
-const EgoModel = ({ isPlay, setIsPlay, setTextNum }) => {
+const EgoModel = ({ setTextNum }) => {
     let index = 0;
     const [bgColor, setBgColor] = useState('#5FCFA4');
     const group = useRef()
