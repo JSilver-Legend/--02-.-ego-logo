@@ -53,6 +53,7 @@ const EgoModel = ({ isPlay, setIsPlay, setTextNum }) => {
     }, [smooshie, mouth, eyes, mat])
 
     useEffect(() => {
+        changeColor();
         const interval = setInterval(() => {changeColor()}, 1800);
         if (isPlay) {
             setTimeout(() => setIsPlay(false), 7500);

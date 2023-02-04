@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber';
-import { Stage, Svg } from '@react-three/drei';
+import { Stage } from '@react-three/drei';
 import EgoModel from './component';
 import { useState } from 'react';
 import LogoIcon from './assets/svg/logo-icon.svg';
@@ -40,8 +40,8 @@ function App() {
       </div>
       <Canvas
         camera={{
-          fov: 35,
-          position: [0, 150, 0]
+          fov: 30,
+          position: [0, 10, 0]
         }}
         style={{
           width: '100wh',

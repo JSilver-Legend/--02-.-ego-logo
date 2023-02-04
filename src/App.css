@@ -2,10 +2,6 @@
   text-align: center;
 }
 
-@keyframes textAnimation {
-  from {left: 0px}
-  to {left: 100px}
-}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -51,7 +47,7 @@
 .logo {
   position: absolute;
   top: 26px;
-  left: 18px;
+  left: 158px;
   z-index: 10;
   display: flex;
   gap: 10px;
