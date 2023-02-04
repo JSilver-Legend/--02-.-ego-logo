@@ -29,22 +29,14 @@ const EgoModel = ({ isPlay, setIsPlay, setTextNum }) => {
     //----------------------------------------------
 
     const changeColor = () => {
-        // setTimeout(() => {setBgColor(colorList[index])}, 1600)
-        if (isPlay) {
-            setBgColor(colorList[index]);
-            setTextNum(index);
-            if (index < 3) {
-                index = index + 1;
-            } else {
-                index = 0;
-            }
+        setBgColor(colorList[index]);
+        setTextNum(index);
+        if (index < 3) {
+            index = index + 1;
+        } else {
+            index = 0;
         }
     }
-
-    useEffect(() => {
-        const interval = setInterval(() => {changeColor()}, 1950);
-        return () => clearInterval(interval);
-    }, []);
 
     useEffect(() => {
         if (eyes !== null) eyes.current.material = material
@@ -54,26 +46,15 @@ const EgoModel = ({ isPlay, setIsPlay, setTextNum }) => {
 
     useEffect(() => {
         changeColor();
-        const interval = setInterval(() => {changeColor()}, 1800);
-        if (isPlay) {
-            setTimeout(() => setIsPlay(false), 7500);
-            actions.EyesAction.play()
-            actions.Eyes_Key_Action.play()
-            actions.MouthAction.play()
-            actions.Mouth_Key_Action.play()
-            actions.SmooshieAction.play()
-            actions.Smooshie_Key_Action.play()
-        } else {
-            clearInterval(interval);
-            actions.EyesAction.stop();
-            actions.Eyes_Key_Action.stop();
-            actions.MouthAction.stop();
-            actions.Mouth_Key_Action.stop();
-            actions.SmooshieAction.stop();
-            actions.Smooshie_Key_Action.stop();
-        }
+        const interval = setInterval(() => {changeColor()}, 7500 / 4);
+        actions.EyesAction.play()
+        actions.Eyes_Key_Action.play()
+        actions.MouthAction.play()
+        actions.Mouth_Key_Action.play()
+        actions.SmooshieAction.play()
+        actions.Smooshie_Key_Action.play()
         return () => clearInterval(interval);
-    }, [isPlay])
+    }, [])
 
     return (
         <group ref={group}>
