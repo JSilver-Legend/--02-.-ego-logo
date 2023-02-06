@@ -7,6 +7,7 @@ import Text from '../Text';
 import LogoIcon from '../../assets/svg/logo-icon.svg';
 import { ReactComponent as EmailIcon } from '../../assets/svg/email.svg';
 import { ReactComponent as CheckIcon } from '../../assets/svg/check.svg';
+import { ReactComponent as CheckIconTrue } from '../../assets/svg/check-2.svg';
 import { ReactComponent as UserIcon } from '../../assets/svg/userIcon.svg';
 
 import styles from './styles.module.scss';
@@ -52,13 +53,13 @@ return (
         <p className={styles.title}>Welcome to Ego</p>
         <Text className={styles.description}>Sign up to join our discord waitlist and learn more about Ego.</Text>
         <Text className={styles.email}>Email</Text>
-        <Input InputIcon={EmailIcon} CheckIcon={CheckIcon} content={'Enter your email address'} />
+        <Input InputIcon={EmailIcon} CheckIcon={CheckIcon} CheckIconTrue={CheckIconTrue} validationType={'e-mail'} content={'Enter your email address'} />
         <ToggleText content={'Are you a vtuber ?'} onClick={onClickBtuberActive} buttonState={vtuberActive} />
         { 
           vtuberActive &&
           <div>
             <p className={styles.wrapper}>Vtuber profiles</p>
-            <Input InputIcon={UserIcon} CheckIcon={CheckIcon} content={'Link your Vtuber profile'} />
+            <Input InputIcon={UserIcon} CheckIcon={CheckIcon} CheckIconTrue={CheckIconTrue} validationType={'url'} content={'Link your Vtuber profile'} />
           </div>
         }
         <ToggleText content={'Would you like custom avatar ?'} onClick={onClickCustomAvatar}></ToggleText>
