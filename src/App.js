@@ -59,7 +59,7 @@ function App() {
           <EgoModel setTextNum={setTextNum} />
         </Stage>
       </Canvas>
-      <SignUpModal open={isOpen} setOpen={setIsOpen}></SignUpModal>
+      <SignUpModal open={isOpen} setOpen={setIsOpen} />
     </div>
   );
 }

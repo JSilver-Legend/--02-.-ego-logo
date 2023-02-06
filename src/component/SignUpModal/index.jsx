@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
 import Input from '../Input';
 import Modal from '../Modal'
@@ -18,7 +18,22 @@ const SignUpModal = ({ open, setOpen }) => {
   const [vtuberActive, setVtuberActive] = useState(false);
   const [customAvatar, setCustomAvatar] = useState(false);
   const [weekActive, setWeekActive] = useState(false);
+  const [pageState, setPageState] = useState(false);
   const [submitActive, setSubmitActive] = useState(false);
+  const [isMailInputValidation, setIsMailInputValidation] = useState(false);
+  const [isURLInputValidation, setIsURLInputValidation] = useState(false);
+  
+  useEffect(() => {
+    if(open) { 
+      setVtuberActive(false);
+      setCustomAvatar(false);
+      setWeekActive(false);
+      setSubmitActive(false);
+      setIsMailInputValidation(false);
+      setIsURLInputValidation(false);
+      setPageState(false);
+    }
+  }, [open]);
 
   const onClickBtuberActive = () => {
     setVtuberActive(!vtuberActive);
@@ -33,33 +48,29 @@ const SignUpModal = ({ open, setOpen }) => {
   }
 
   const onClickSubmit = () => {
-    setSubmitActive(!submitActive);
+    setPageState(!pageState);
   }
 
   useEffect(() => {
-    if(open) { 
-      setVtuberActive(false);
-      setCustomAvatar(false);
-      setWeekActive(false);
-      setSubmitActive(false);
-    }
-  }, [open]);
+    if(vtuberActive) setSubmitActive(isMailInputValidation&&isURLInputValidation);
+    else setSubmitActive(isMailInputValidation);
+  }, [isMailInputValidation, isURLInputValidation, vtuberActive])
 
 return (
   <Modal open={open} setOpen={setOpen} className={styles.signUpModal}>
     {
-      !submitActive &&
+      !pageState &&
       <>
         <p className={styles.title}>Welcome to Ego</p>
         <Text className={styles.description}>Sign up to join our discord waitlist and learn more about Ego.</Text>
         <Text className={styles.email}>Email</Text>
-        <Input InputIcon={EmailIcon} CheckIcon={CheckIcon} CheckIconTrue={CheckIconTrue} validationType={'e-mail'} content={'Enter your email address'} />
+        <Input InputIcon={EmailIcon} setValidation={setIsMailInputValidation} CheckIcon={CheckIcon} CheckIconTrue={CheckIconTrue}  validationType={'e-mail'} content={'Enter your email address'} />
         <ToggleText content={'Are you a vtuber ?'} onClick={onClickBtuberActive} buttonState={vtuberActive} />
         { 
           vtuberActive &&
           <div>
             <p className={styles.wrapper}>Vtuber profiles</p>
-            <Input InputIcon={UserIcon} CheckIcon={CheckIcon} CheckIconTrue={CheckIconTrue} validationType={'url'} content={'Link your Vtuber profile'} />
+            <Input InputIcon={UserIcon} CheckIcon={CheckIcon} setValidation={setIsURLInputValidation} CheckIconTrue={CheckIconTrue} validationType={'url'} content={'Link your Vtuber profile'} />
           </div>
         }
         <ToggleText content={'Would you like custom avatar ?'} onClick={onClickCustomAvatar}></ToggleText>
@@ -68,14 +79,14 @@ return (
           <ToggleText content={'Are you willing to stram 10+ hours a week ?'} onClick={onClickWeekActive}></ToggleText>
         }
         <div className={styles.submitBtn}>
-          <button className={styles.button} onClick={onClickSubmit}  >
+          <button className={styles.button} onClick={onClickSubmit} disabled={ submitActive ? false : true}  >
             Submit
           </button>
         </div>
       </>
     }
     {
-      submitActive &&
+      pageState &&
       <>
         <div className={styles.logo}>
           <img src={LogoIcon} width={85} height={92} alt='logo-icon'/>

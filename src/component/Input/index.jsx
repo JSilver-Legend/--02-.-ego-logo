@@ -3,7 +3,7 @@ import validator from 'validator';
 
 import styles from './styles.module.scss';
 
-const Input = ({InputIcon, CheckIcon, CheckIconTrue, content, validationType}) => {
+const Input = ({InputIcon, CheckIcon, CheckIconTrue, content, validationType, setValidation}) => {
 
   const [ isValidation, setIsValidation ] = useState(false);
 
@@ -11,14 +11,18 @@ const Input = ({InputIcon, CheckIcon, CheckIconTrue, content, validationType}) =
     if( validationType === 'e-mail') {
       if (validator.isEmail(e.target.value)) {
         setIsValidation(true);
+        setValidation(true);
       } else {
         setIsValidation(false);
+        setValidation(false);
       }
     } else if( validationType === 'url') {
       if (validator.isURL(e.target.value)) {
         setIsValidation(true);
+        setValidation(true);
       } else {
         setIsValidation(false);
+        setValidation(false);
       }
     }
   }

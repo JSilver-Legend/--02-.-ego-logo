@@ -9,7 +9,7 @@
     }
 
     .mainContentWrapper {
-      @apply inline-block px-4 pt-5 pb-4 text-left align-bottom transition-all transform bg-black bg-opacity-40 rounded-lg shadow-xl relative;
+      @apply inline-block px-4 pt-5 pb-4 text-left align-bottom transition-all transform bg-black bg-opacity-40 rounded-3xl shadow-xl relative;
     }
   }
 }
