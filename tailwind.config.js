@@ -4,10 +4,13 @@ module.exports = {
   ],
   theme: {
     extend: {
-    colors: {
-      whiteGreen: '#53DBAA',
-      darkGreen: '#3EA37F'
-    }
+      colors: {
+        whiteGreen: '#53DBAA',
+        darkGreen: '#3EA37F'
+      },
+      maxWidth: {
+        '471': '471px',
+      }
     },
     screens: {
       'sm': '640px',
