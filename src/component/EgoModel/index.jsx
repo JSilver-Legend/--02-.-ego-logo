@@ -42,6 +42,7 @@ const EgoModel = ({ setTextNum }) => {
         if (eyes !== null) eyes.current.material = material
         if (mouth !== null) mouth.current.material = material
         if (smooshie !== null) smooshie.current.material = mat
+        // eslint-disable-next-line
     }, [smooshie, mouth, eyes, mat])
 
     useEffect(() => {
@@ -54,6 +55,7 @@ const EgoModel = ({ setTextNum }) => {
         actions.SmooshieAction.play()
         actions.Smooshie_Key_Action.play()
         return () => clearInterval(interval);
+        // eslint-disable-next-line
     }, [])
 
     return (

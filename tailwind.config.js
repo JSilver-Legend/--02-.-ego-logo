@@ -10,6 +10,12 @@ module.exports = {
       },
       maxWidth: {
         '471': '471px',
+      },
+      minWidth: {
+        '471': '471px'
+      },
+      fontFamily: {
+        'custom': ['HeptaSlab'],
       }
     },
     screens: {

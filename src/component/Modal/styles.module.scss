@@ -1,15 +1,15 @@
 .wrapper {
-  @apply fixed inset-0 z-50 overflow-y-auto;
+  @apply relative z-10;
 
   .content {
-    @apply flex items-center justify-center min-h-screen px-4 pt-4 pb-80 text-center md:p-0;
+    @apply flex items-center justify-center min-h-screen px-4 pt-4 text-center;
 
     .translation {
-      @apply fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75;
+      @apply fixed inset-0 transition-opacity bg-gray-800 bg-opacity-75;
     }
 
     .mainContentWrapper {
-      @apply inline-block px-4 pt-5 pb-4 overflow-hidden text-left align-bottom transition-all transform bg-black bg-opacity-40 rounded-lg shadow-xl md:my-8 md:align-middle md:max-w-5xl w-full md:p-6 relative;
+      @apply inline-block px-4 pt-5 pb-4 text-left align-bottom transition-all transform bg-black bg-opacity-40 rounded-lg shadow-xl relative;
     }
   }
 }

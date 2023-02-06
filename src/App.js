@@ -7,7 +7,6 @@ import LogoText from './assets/svg/logo-text.svg';
 
 import './App.css';
 import 'animate.css';
-import Modal from './component/Modal';
 import SignUpModal from './component/SignUpModal';
 
 const texts = ['AVATAR', 'FURRY', 'VTUBER', 'WAIFU'];
