@@ -22,19 +22,27 @@ const SignUpModal = ({ open, setOpen }) => {
   const onClickBtuberActive = () => {
     setVtuberActive(!vtuberActive);
   }
+  
   const onClickCustomAvatar = () => {
     setCustomAvatar(!customAvatar);
   }
+
   const onClickWeekActive = () => {
     setWeekActive(!weekActive);
   }
-const onClickSubmit = () => {
-  setSubmitActive(!submitActive);
-}
 
-useEffect(() => {
-  if(open) setSubmitActive(false);
-}, [open]);
+  const onClickSubmit = () => {
+    setSubmitActive(!submitActive);
+  }
+
+  useEffect(() => {
+    if(open) { 
+      setVtuberActive(false);
+      setCustomAvatar(false);
+      setWeekActive(false);
+      setSubmitActive(false);
+    }
+  }, [open]);
 
 return (
   <Modal open={open} setOpen={setOpen} className={styles.signUpModal}>
