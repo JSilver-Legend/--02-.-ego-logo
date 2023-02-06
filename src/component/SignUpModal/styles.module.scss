@@ -1,0 +1,16 @@
+.signUpModal {
+  @apply max-w-[471px] bg-white px-12 py-14 bg-opacity-100 #{!important};
+}
+
+.title {
+  @apply text-whiteGreen text-3xl font-semibold leading-8;
+  font-family: "HeptaSlab";
+}
+
+.description {
+  @apply mt-6;
+}
+
+.email {
+  @apply mt-7 mb-4;
+}

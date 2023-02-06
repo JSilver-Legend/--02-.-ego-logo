@@ -1,0 +1,15 @@
+.wrapper {
+  @apply fixed inset-0 z-50 overflow-y-auto;
+
+  .content {
+    @apply flex items-center justify-center min-h-screen px-4 pt-4 pb-80 text-center md:p-0;
+
+    .translation {
+      @apply fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75;
+    }
+
+    .mainContentWrapper {
+      @apply inline-block px-4 pt-5 pb-4 overflow-hidden text-left align-bottom transition-all transform bg-black bg-opacity-40 rounded-lg shadow-xl md:my-8 md:align-middle md:max-w-5xl w-full md:p-6 relative;
+    }
+  }
+}

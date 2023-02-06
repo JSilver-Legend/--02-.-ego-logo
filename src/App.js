@@ -1,12 +1,14 @@
 import { Canvas } from '@react-three/fiber';
 import { Stage } from '@react-three/drei';
-import EgoModel from './component';
+import EgoModel from './component/EgoModel';
 import { useState } from 'react';
 import LogoIcon from './assets/svg/logo-icon.svg';
 import LogoText from './assets/svg/logo-text.svg';
 
 import './App.css';
 import 'animate.css';
+import Modal from './component/Modal';
+import SignUpModal from './component/SignUpModal';
 
 const texts = ['AVATAR', 'FURRY', 'VTUBER', 'WAIFU'];
 
@@ -58,6 +60,7 @@ function App() {
           <EgoModel setTextNum={setTextNum} />
         </Stage>
       </Canvas>
+      <SignUpModal open={isOpen} setOpen={setIsOpen}></SignUpModal>
     </div>
   );
 }

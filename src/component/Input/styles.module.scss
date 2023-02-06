@@ -1,0 +1,15 @@
+.wrapper {
+  @apply  flex flex-row justify-between items-center border-b-2 border-black gap-3  py-2;
+
+  .emilIcon {
+    @apply w-[18px] h-[15px];
+  }
+
+  .textField {
+    @apply h-8 text-xs w-full border-none outline-none;
+  }
+
+  .checkIcon {
+    @apply h-4 w-4;
+  }
+}
